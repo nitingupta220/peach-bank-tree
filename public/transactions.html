@@ -1,0 +1,179 @@
+<div>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-sm"></div>
+      <div class="col-sm">
+        <md-input-container>
+          <label>Search</label>
+          <input ng-model="search" />
+        </md-input-container>
+      </div>
+    </div>
+  </div>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Transactions">
+        <md-content class="md-padding">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-5">
+                <div id="login-box">
+                  <md-toolbar>
+                    <div class="md-toolbar-tools">
+                      <h2 flex md-truncate>New Transaction</h2>
+                    </div>
+                  </md-toolbar>
+                  <div layout-gt-sm="row" layout-align=" center">
+                    <md-input-container flex-gt-sm>
+                      <select ng-model="fromDropdownMenuButton">
+                        <option value="" selected disabled>From</option>
+                        <option>1234567890</option>
+                        <option>0987654321</option>
+                      </select>
+                    </md-input-container>
+                  </div>
+                  <div layout-gt-sm="row" layout-align=" center">
+                    <md-input-container flex-gt-sm>
+                      <select ng-model="toDropdownMenuButton">
+                        <option value="" selected disabled>To</option>
+                        <option>Nitin</option>
+                        <option>Gupta</option>
+                      </select>
+                    </md-input-container>
+                  </div>
+                  <div layout-gt-sm="row" layout-align=" center">
+                    <md-input-container flex-gt-sm>
+                      <label>Amount</label>
+                      <input ng-model="transactionAmount" />
+                    </md-input-container>
+                  </div>
+                  <div layout-gt-sm="row" layout-align=" center">
+                    <md-button
+                      class="md-raised md-primary"
+                      ng-click="addNewTransaction()"
+                      ng-disabled="transactionAmount === ''"
+                      >Pay</md-button
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-7">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">Beneficiary Name</th>
+                      <th scope="col">Payment Type</th>
+                      <th scope="col">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      ng-repeat="data in transactionsList | filter: search | orderBy: sortBy track by $index "
+                    >
+                      <td scope="row">{{data.date}}</td>
+                      <td>{{data.beneficiary}}</td>
+                      <td>{{data.payment_type}}</td>
+                      <td>{{data.transactionAmount}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Capital">
+        <md-content class="md-padding">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-5">
+                <div id="login-box">
+                  <md-toolbar>
+                    <div class="md-toolbar-tools">
+                      <h2 flex md-truncate>Upload Document</h2>
+                    </div>
+                  </md-toolbar>
+                  <div layout-gt-sm="row" layout-align=" center">
+                    <md-input-container flex-gt-sm>
+                      <select ng-model="selectDocument">
+                        <option value="" selected disabled>
+                          Select Document
+                        </option>
+                        <option>Driver License</option>
+                        <option>PAN Card</option>
+                        <option>Aadhar</option>
+                        <option>ID Card</option>
+                      </select>
+                    </md-input-container>
+                  </div>
+                  <div layout-gt-sm="row" layout-align=" center">
+                    <md-input-container flex-gt-sm>
+                      <label>Amount</label>
+                      <input ng-model="loanAmount" />
+                    </md-input-container>
+                  </div>
+                  <div layout-gt-sm="row" layout-align=" center">
+                    <md-input-container flex-gt-sm>
+                      <div
+                        type="file"
+                        ngf-drop
+                        ngf-select
+                        ng-model="picFile"
+                        class="drop-box"
+                        ngf-drag-over-class="'dragover'"
+                        ngf-multiple="true"
+                        ngf-allow-dir="true"
+                        accept="image/*,application/pdf"
+                        ngf-pattern="'image/*,application/pdf'"
+                      >
+                        Drop pdf or image files<br />
+                        or click to upload
+                      </div>
+                      <br />
+                      <!-- {{fileName}} -->
+                    </md-input-container>
+                  </div>
+                  <div layout-gt-sm="row" layout-align=" center">
+                    <md-button
+                      class="md-raised md-primary"
+                      ng-click="addNewLoan()"
+                      ng-disabled="loanAmount === ''"
+                      >Submit</md-button
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-7">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">Document</th>
+                      <th scope="col">Preview</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      ng-repeat="data in loanList | filter: search track by $index"
+                    >
+                      <td>{{data.date}}</td>
+                      <td>{{data.document}}</td>
+                      <td>
+                        <img width="200" ngf-src="{{data.preview}}" />
+                      </td>
+                      <td>{{data.amount}}</td>
+                      <td>{{data.status}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>

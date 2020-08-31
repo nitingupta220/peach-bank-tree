@@ -1,0 +1,105 @@
+body {
+  font-family: "Droid Sans", serif;
+}
+
+select {
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+md-tab-item,
+button:focus {
+  outline: none;
+}
+
+#login-box {
+  width: 400px;
+  /* height: 400px; */
+  margin: auto;
+  border: 1px solid #dbdbdb;
+}
+
+#login-box md-input-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.drop-box {
+  background: #f8f8f8;
+  border: 5px dashed #ddd;
+  /* width: 200px; */
+  height: 65px;
+  text-align: center;
+  padding: 20px;
+  line-height: 12px;
+  color: #999999;
+  font-family: Arial;
+}
+.dragover {
+  border: 5px dotted #333333;
+  color: #333333;
+}
+.drop-box:hover {
+  border: 5px dashed #666666;
+  color: #666666;
+}
+
+/* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  color: #95a5a6;
+  font-family: "Helvetica", arial, sans-serif;
+  font-size: 18px;
+  border: 1px solid #ecf0f1;
+  border-style: none;
+  border-bottom: 1px solid #eee;
+  /* background: #ecf0f1; */
+  padding: 5px;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+input[type="date"],
+focus {
+  color: #95a5a6;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+md-radio-group md-radio-button:not(:first-child) {
+  margin-top: 0px;
+}
+md-radio-button {
+  margin-right: 10px;
+}
+
+#loading-bar .bar {
+  /* position: relative; */
+  /* width: 200px; */
+  height: 50px;
+  opacity: 0.5;
+  border-radius: 5px;
+  background-color: #94daff;
+}
